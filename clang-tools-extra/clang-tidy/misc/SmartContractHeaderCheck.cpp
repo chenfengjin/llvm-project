@@ -49,21 +49,6 @@ void SmartContractHeaderCheck::registerPPCallbacks(
       ::std::make_unique<IncludeModernizePPCallbacks>(*this, getLangOpts()));
 }
 
-// void SmartContractHeaderCheck::registerMatchers(MatchFinder *Finder) {
-//   // FIXME: Add matchers.
-//   Finder->addMatcher(functionDecl().bind("x"), this);
-// }
-
-// void SmartContractHeaderCheck::check(const MatchFinder::MatchResult &Result) {
-//   // FIXME: Add callback implementation.
-//   const auto *MatchedDecl = Result.Nodes.getNodeAs<FunctionDecl>("x");
-//   if (!MatchedDecl->getIdentifier() || MatchedDecl->getName().startswith("awesome_"))
-//     return;
-//   diag(MatchedDecl->getLocation(), "function %0 is insufficiently awesome")
-//       << MatchedDecl;
-//   diag(MatchedDecl->getLocation(), "insert 'awesome'", DiagnosticIDs::Note)
-//       << FixItHint::CreateInsertion(MatchedDecl->getLocation(), "awesome_");
-// }
 
 IncludeModernizePPCallbacks::IncludeModernizePPCallbacks(ClangTidyCheck &Check,
                                                          LangOptions LangOpts)
@@ -113,28 +98,13 @@ void IncludeModernizePPCallbacks::InclusionDirective(
     bool IsAngled, CharSourceRange FilenameRange, const FileEntry *File,
     StringRef SearchPath, StringRef RelativePath, const Module *Imported,
     SrcMgr::CharacteristicKind FileType) {
-  // FIXME: Take care of library symbols from the global namespace.
-  //
-  // Reasonable options for the check:
-  //
-  // 1. Insert std prefix for every such symbol occurrence.
-  // 2. Insert `using namespace std;` to the beginning of TU.
-  // 3. Do nothing and let the user deal with the migration himself.
-  if (CStyledHeaderToCxx.count(FileName) != 0) {
-    std::string Replacement =
+      if (CStyledHeaderToCxx.count(FileName) != 0) {
+            std::string Replacement =
         (llvm::Twine("<") + CStyledHeaderToCxx[FileName] + ">").str();
-    Check.diag(FilenameRange.getBegin(), "inclusion of deprecated C++ header "
-                                         "'%0'; consider using '%1' instead")
-        << FileName << CStyledHeaderToCxx[FileName]
-        << FixItHint::CreateReplacement(FilenameRange.getAsRange(),
-                                        Replacement);
-  } else if (DeleteHeaders.count(FileName) != 0) {
-    Check.diag(FilenameRange.getBegin(),
-               "including '%0' has no effect in C++; consider removing it")
-        << FileName
-        << FixItHint::CreateRemoval(
-               SourceRange(HashLoc, FilenameRange.getEnd()));
-  }
+    Check.diag(FilenameRange.getBegin(), "inclusion of invalid header "
+                                         "'%0',which results in undefined behaviour in smart contract, consider removing it")
+        << FileName << CStyledHeaderToCxx[FileName];
+    }
 }
 
 
