@@ -221,7 +221,8 @@ Clang-Tidy Checks
    `misc-non-copyable-objects <misc-non-copyable-objects.html>`_,
    `misc-non-private-member-variables-in-classes <misc-non-private-member-variables-in-classes.html>`_,
    `misc-redundant-expression <misc-redundant-expression.html>`_, "Yes"
-   `misc-smart-contract-header <misc-smart-contract-header.html>`_, "Yes"
+   `misc-smart-contract-global <misc-smart-contract-global.html>`_, "Yes"
+   `misc-smart-contract-header <misc-smart-contract-header.html>`_,
    `misc-static-assert <misc-static-assert.html>`_, "Yes"
    `misc-throw-by-value-catch-by-reference <misc-throw-by-value-catch-by-reference.html>`_,
    `misc-unconventional-assign-operator <misc-unconventional-assign-operator.html>`_,

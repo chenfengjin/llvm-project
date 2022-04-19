@@ -112,6 +112,11 @@ New checks
 
   Finds initializations of C++ shared pointers to non-array type that are initialized with an array.
 
+- New :doc:`misc-smart-contract-global
+  <clang-tidy/checks/misc-smart-contract-global>` check.
+
+  FIXME: add release notes.
+
 - New :doc:`misc-smart-contract-header
   <clang-tidy/checks/misc-smart-contract-header>` check.
 

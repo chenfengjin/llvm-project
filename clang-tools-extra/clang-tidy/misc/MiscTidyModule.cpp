@@ -18,6 +18,7 @@
 #include "NonCopyableObjects.h"
 #include "NonPrivateMemberVariablesInClassesCheck.h"
 #include "RedundantExpressionCheck.h"
+#include "SmartContractGlobalCheck.h"
 #include "SmartContractHeaderCheck.h"
 #include "StaticAssertCheck.h"
 #include "ThrowByValueCatchByReferenceCheck.h"
@@ -50,6 +51,8 @@ public:
         "misc-non-private-member-variables-in-classes");
     CheckFactories.registerCheck<RedundantExpressionCheck>(
         "misc-redundant-expression");
+    CheckFactories.registerCheck<SmartContractGlobalCheck>(
+        "misc-smart-contract-global");
     CheckFactories.registerCheck<SmartContractHeaderCheck>(
         "misc-smart-contract-header");
     CheckFactories.registerCheck<StaticAssertCheck>("misc-static-assert");
