@@ -16,6 +16,7 @@ add_clang_library(clangTidyMiscModule
   RedundantExpressionCheck.cpp
   SmartContractGlobalCheck.cpp
   SmartContractHeaderCheck.cpp
+  SmartContractMainCheck.cpp
   StaticAssertCheck.cpp
   ThrowByValueCatchByReferenceCheck.cpp
   UnconventionalAssignOperatorCheck.cpp

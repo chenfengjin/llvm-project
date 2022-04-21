@@ -223,6 +223,7 @@ Clang-Tidy Checks
    `misc-redundant-expression <misc-redundant-expression.html>`_, "Yes"
    `misc-smart-contract-global <misc-smart-contract-global.html>`_, "Yes"
    `misc-smart-contract-header <misc-smart-contract-header.html>`_,
+   `misc-smart-contract-main <misc-smart-contract-main.html>`_, "Yes"
    `misc-static-assert <misc-static-assert.html>`_, "Yes"
    `misc-throw-by-value-catch-by-reference <misc-throw-by-value-catch-by-reference.html>`_,
    `misc-unconventional-assign-operator <misc-unconventional-assign-operator.html>`_,

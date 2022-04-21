@@ -20,6 +20,7 @@
 #include "RedundantExpressionCheck.h"
 #include "SmartContractGlobalCheck.h"
 #include "SmartContractHeaderCheck.h"
+#include "SmartContractMainCheck.h"
 #include "StaticAssertCheck.h"
 #include "ThrowByValueCatchByReferenceCheck.h"
 #include "UnconventionalAssignOperatorCheck.h"
@@ -55,6 +56,8 @@ public:
         "misc-smart-contract-global");
     CheckFactories.registerCheck<SmartContractHeaderCheck>(
         "misc-smart-contract-header");
+    CheckFactories.registerCheck<SmartContractMainCheck>(
+        "misc-smart-contract-main");
     CheckFactories.registerCheck<StaticAssertCheck>("misc-static-assert");
     CheckFactories.registerCheck<ThrowByValueCatchByReferenceCheck>(
         "misc-throw-by-value-catch-by-reference");

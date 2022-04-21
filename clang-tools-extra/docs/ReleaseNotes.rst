@@ -122,6 +122,11 @@ New checks
 
   FIXME: add release notes.
 
+- New :doc:`misc-smart-contract-main
+  <clang-tidy/checks/misc-smart-contract-main>` check.
+
+  FIXME: add release notes.
+
 - New :doc:`modernize-macro-to-enum
   <clang-tidy/checks/modernize-macro-to-enum>` check.
 
